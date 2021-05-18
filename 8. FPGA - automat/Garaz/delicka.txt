@@ -1,0 +1,28 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity delicka is
+    Port ( CLK_in : in  STD_LOGIC;
+           CLK_out : out  STD_LOGIC);
+end delicka;
+
+architecture Behavioral of delicka is
+
+begin
+
+	process (CLK_in)
+		variable i : integer range 0 to 15000000 ; 		
+begin
+	if rising_edge(CLK_in) then
+		if i=0 then CLK_out <= '1' ;
+			     i := 9843000 ;	
+		else
+			    CLK_out <= '0' ;
+			    i := i - 1 ;
+		 end if ;
+	 end if ;
+	end process;
+
+end Behavioral;

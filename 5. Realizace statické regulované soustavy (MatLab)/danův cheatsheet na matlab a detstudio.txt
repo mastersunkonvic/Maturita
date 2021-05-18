@@ -1,0 +1,139 @@
+budou zadané konstanty
+pøekmit má být takový a takový
+nebo zadá dif rovnici
+u=3y+4y'+6y''+2y'''
+	-tøikapacitní
+	-staticka
+	-vypoèet koøenù - [z p k]=tf2zp([1],[2 6 4 3]) - 
+	p =-2.4311 + 0.0000i
+  	   -0.2844 + 0.7322i
+           -0.2844 - 0.7322i
+
+s1=-3,s2=-1,s3=-2
+(s+3)(s+2)(s+1)=(s+3)(s^2+3s+2)
+s^3+30^2+2s
+    3s^2+9s+6
+-----------------
+s^3+6s^2+11s+6=>u=6y+11y'+6y''+y'''
+
+[z p k]=tf2zp([1],[1 6 11 6])
+p =
+
+   -3.0000
+   -2.0000
+   -1.0000
+
+roots([1 6 11 6])
+
+ans =
+
+   -3.0000
+   -2.0000
+   -1.0000
+
+soustava je aperiodická
+
+
+________________________________________________________________
+
+
+
+dokumentace požadavky - 
+popis èinnosti  - jaké máme soustavy - statická a astatická,
+		- kapacity - jedno, vícekapacitní, bezkapacitní - statická
+		- vlastnosti regulátoru - jak se chová I, P a D (D se nepoužívá samostatnì, kombinace ID se nepoužívá)
+
+________________________________________________________________
+
+
+
+Simulink
+vstupní prùbìh  - tabulkou nebo nákresem
+		- udìláme v builderu
+		- použijeme i jednotkový skok
+
+jednotkový tvar
+
+regulátor - 3 øádky     - èistý vodiè
+			- integraèní vìtìv - integrátor + zesílení (1/ti)
+			- derivaèní složka - derivator + zesílení (1/Td) 
+			
+	  - potom vše do souètového èlenu P
+	  - potom dál do regulované soustavy
+
+zobrazení grafù - W - požadovaná velièina, pøímo z builderu
+		- E - regulaèní odchylka
+		- U - akèní velièina (za regulatorem)
+		- Y - regulovaná velièina
+		- V - poruchová velièina		
+		- poslední graf - Y s odezvou na vstupní signál - 2 prùbìhy (W a Y)
+		- R - Regulátor 
+		- S - Regulovaná soustava
+		PØENOS: (Gr*Gs)/(1+Gr*Gs)
+
+
+________________________________________________________________________
+
+
+zjistìní stability      - jestli je daný obvod stabilní
+			- zjisti mez a oblast stability pro K0, Ti a Td
+			- zjistit pøekmit pøi jaké pùlvlnì
+			- hurwitzùv determinant F=Fo/1+Fo (Fo = pøenos regulátoru * pøenos soustavy(Fr*Frs))
+				-Fr - K0(1+(1/Tis)+Tds)
+				-Frs - (1/(4+3s+2s^2)) = 1/C
+
+				Fr=(ko+koTis+koTiTds^2)/Tis = A/B
+				Fo=(A/B)*(1/C)=A/BC
+				N(s)=1+Fo>=0
+				N(s)=1+(A/BC)=(BC+A)/BC>=0   -->  BC+A>=0
+
+
+mez a oblast stability
+
+		~Oblast stability~
+             ~~~~~~~~~~~~~~~~~~~~~~~~
+	---!-------------------------
+	   !                 _____
+	   !           ____
+	   !        __
+	   !      .   ~Mez stability~
+	   ! 	 .
+	   !    .
+	   !   .
+	   !  .
+	   ! .
+	   ! .
+	   !.
+           !
+
+            ~~~~~~~~~~~~~~~~~~~~~~~~   .
+	    ~~~~~~~~~~~~~~~~~~~~~~~ .      ~Mez stability~
+	    ~~~~~~~~~~~~~~~~~~~~ .
+	    ~Oblast stability~ .
+	---!-----------------.--------
+	   !             .       
+	   !        .    
+	   !    .    
+	   ! .   
+	   !.
+	   !  
+
+
+
+
+
+
+
+
+
+DET - budou jen pásy ruèní a automatický
+Technologické schéma
+Popis èinnosti - jak se vypínají a zapínají pásy
+Seznam vstupù a výstupù 
+Promìnné, aliasy
+Program
+Funkce modulù, které jsem použil
+8 vstupù na pásy, na každý pás 2 + havarijní tlaèítko a vyøazení havarijního tlaèítka
+napsat vlastními slovy funkci TOF a TON (hlavnì neopsat z popisu)
+krásná úprava
+

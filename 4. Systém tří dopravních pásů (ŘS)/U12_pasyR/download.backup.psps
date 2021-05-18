@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DETStudioSpravceDat>
+  <DataItem>
+    <Link>False</Link>
+    <Name>Download backup</Name>
+    <Created>03/14/2019 13:20:35</Created>
+    <CountVar>2</CountVar>
+    <CountBytes>4</CountBytes>
+    <Comment>
+    </Comment>
+    <File>download.backup.psps</File>
+    <Application>
+    </Application>
+    <ActAllStore>True</ActAllStore>
+    <ActAllProject>False</ActAllProject>
+    <AllVarsOK>True</AllVarsOK>
+    <ReadAllVars>True</ReadAllVars>
+  </DataItem>
+  <Variables>
+    <Variable>
+      <Type>dbtInt</Type>
+      <Name>DI0</Name>
+      <WID>4000</WID>
+      <ValueInt>0</ValueInt>
+      <ActStore>False</ActStore>
+      <ActProject>False</ActProject>
+    </Variable>
+    <Variable>
+      <Type>dbtInt</Type>
+      <Name>DO0</Name>
+      <WID>4001</WID>
+      <ValueInt>584</ValueInt>
+      <ActStore>False</ActStore>
+      <ActProject>False</ActProject>
+    </Variable>
+  </Variables>
+</DETStudioSpravceDat>

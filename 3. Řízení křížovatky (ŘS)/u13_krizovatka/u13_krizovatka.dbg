@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<!-- DetStudio debug info file -->
+<DetDbg scheme="0">
+  <NetList>
+    <ProcessList>
+      <Proc_Proc00>
+        <DbgNodeList>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A20_A20.Q.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>1</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A20.Q.out</Key>
+              <Key>A24.IN.in</Key>
+              <Key>A24.OUT.out</Key>
+              <Key>A26.IN.in</Key>
+              <Key>D29</Key>
+              <Key>D25</Key>
+              <Key>C34</Key>
+              <Key>D35</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A27_A27.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxL</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>-1</Bit>
+              <StackType>4</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A26.PT.in</Key>
+              <Key>A27.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A15_A15.CV.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>4</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A15.CV.out</Key>
+              <Key>A21.IN.in</Key>
+              <Key>A21.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A40_A40.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>7</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A40.OUT.out</Key>
+              <Key>A31.A.in</Key>
+              <Key>A33.A.in</Key>
+              <Key>A60.A.in</Key>
+              <Key>A61.A.in</Key>
+              <Key>A81.A.in</Key>
+              <Key>A14.A.in</Key>
+              <Key>A4.A.in</Key>
+              <Key>A13.A.in</Key>
+              <Key>A41.A.in</Key>
+              <Key>A42.A.in</Key>
+              <Key>A63.A.in</Key>
+              <Key>A83.A.in</Key>
+              <Key>A44.A.in</Key>
+              <Key>A75.A.in</Key>
+              <Key>A86.A.in</Key>
+              <Key>A87.A.in</Key>
+              <Key>A88.A.in</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A37_A37.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>6</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A33.B.in</Key>
+              <Key>A37.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A62_A62.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>10</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A60.B.in</Key>
+              <Key>A62.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A60_A60.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>4</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A60.Y.out</Key>
+              <Key>D72</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A61_A61.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>5</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>D76</Key>
+              <Key>A61.Y.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A64_A64.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>11</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A61.B.in</Key>
+              <Key>A64.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A82_A82.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>14</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A81.B.in</Key>
+              <Key>A82.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A81_A81.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>6</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A81.Y.out</Key>
+              <Key>D87</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A29_A29.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>5</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A14.B.in</Key>
+              <Key>A29.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A14_A14.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>0</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A14.Y.out</Key>
+              <Key>D32</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A9_A9.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>16</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A4.B.in</Key>
+              <Key>A9.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A12_A12.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>3</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A13.B.in</Key>
+              <Key>A12.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A43_A43.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>8</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A41.B.in</Key>
+              <Key>A43.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A41_A41.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>2</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A41.Y.out</Key>
+              <Key>D52</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A45_A45.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>9</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A42.B.in</Key>
+              <Key>A45.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A42_A42.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>3</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A42.Y.out</Key>
+              <Key>D50</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A65_A65.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>12</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A63.B.in</Key>
+              <Key>A65.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A91_A91.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>17</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A83.B.in</Key>
+              <Key>A91.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A66_A66.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>13</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A44.B.in</Key>
+              <Key>A66.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A85_A85.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>15</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A75.B.in</Key>
+              <Key>A85.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A101_A101.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A86.B.in</Key>
+              <Key>A101.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A86_A86.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>7</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A86.Y.out</Key>
+              <Key>D111</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A103_A103.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>1</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A87.B.in</Key>
+              <Key>A103.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A87_A87.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>8</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A87.Y.out</Key>
+              <Key>D109</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A105_A105.OUT.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxI</Name>
+              <Row>0</Row>
+              <Col>2</Col>
+              <Bit>-1</Bit>
+              <StackType>1</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A88.B.in</Key>
+              <Key>A105.OUT.out</Key>
+            </ElementKeyList>
+          </DbgNode>
+          <DbgNode Class="Amit.Psp4.RS.DbgNode">
+            <Key>A88_A88.Y.out</Key>
+            <DbVarDesc Class="Amit.Psp4.RS.DbVarDesc">
+              <Name>~AuxB</Name>
+              <Row>0</Row>
+              <Col>0</Col>
+              <Bit>9</Bit>
+              <StackType>0</StackType>
+            </DbVarDesc>
+            <ElementKeyList>
+              <Key>A88.Y.out</Key>
+              <Key>D112</Key>
+            </ElementKeyList>
+          </DbgNode>
+        </DbgNodeList>
+      </Proc_Proc00>
+    </ProcessList>
+  </NetList>
+  <GenTimeString>1. 3. 2017 13:44:09</GenTimeString>
+  <GenTime>-8587132346357436342</GenTime>
+  <FBInstanceContexts />
+</DetDbg>

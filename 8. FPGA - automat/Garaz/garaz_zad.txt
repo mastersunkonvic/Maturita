@@ -1,0 +1,12 @@
+Navrhnìte Moorùv automat realizující 
+garáž pro 5 aut.
+
+Poèet aut v garáži je zobrazen na 
+sedmisegmentovém displeji.
+
+Plná garáž je signalizována rozsvícením Led.
+
+Pøíjezd a odjezd simulujete tlaèítky btn.
+
+Vynulování stavu (reset) realizujete
+pøepínaèem sw. 

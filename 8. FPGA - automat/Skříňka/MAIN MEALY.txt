@@ -1,0 +1,136 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+entity automat1 is
+    Port ( 
+           clk : in  STD_LOGIC;
+           rst : in  STD_LOGIC;
+			  mince : in  STD_LOGIC_VECTOR (2 downto 0); 
+           vyst : out STD_LOGIC_VECTOR (1 downto 0); 	
+           stavy : out STD_LOGIC_VECTOR (2 downto 0));	
+end automat1;
+
+architecture Behavioral of automat1 is
+  signal state, next_state : STD_LOGIC_VECTOR (2 downto 0);
+	
+	constant s0 : STD_LOGIC_VECTOR (2 downto 0) := "000";
+	constant s1 : STD_LOGIC_VECTOR (2 downto 0) := "001";
+	constant s2 : STD_LOGIC_VECTOR (2 downto 0) := "010";
+	constant s3 : STD_LOGIC_VECTOR (2 downto 0) := "011";
+	constant s4 : STD_LOGIC_VECTOR (2 downto 0) := "100";
+---------------------------------------------------------------------------------------
+begin
+
+   SYNC_PROC: process (clk)
+   begin
+		if rising_edge (clk) 
+			then if (rst='0')
+				  then state <= next_state; 
+				 else state <= s0; 
+			end if;
+		end if;
+   end process SYNC_PROC;
+	
+	
+---------------------------------------------------------------------------------------
+OUTPUT_DECODE: process (mince)
+	begin
+														
+		case (state) is 
+			when s0 => 
+				if 	(mince = "000") then vyst <= "00";
+				elsif (mince = "100") then vyst <= "00";
+				elsif (mince = "010") then vyst <= "00";
+				elsif (mince = "001") then vyst <= "10";
+				else vyst <= "00";
+				end if;
+			when s1 => 
+				if 	(mince = "000") then vyst <= "00";
+				elsif (mince = "100") then vyst <= "00";
+				elsif (mince = "010") then vyst <= "00";
+				elsif (mince = "001") then vyst <= "10";
+				else vyst <= "00";
+				end if;
+			when s2 => 
+				if 	(mince = "000") then vyst <= "00";
+				elsif (mince = "100") then vyst <= "00";
+				elsif (mince = "010") then vyst <= "00";
+				elsif (mince = "001") then vyst <= "10";
+				else vyst <= "00";
+				end if;
+			when s3 => 
+				if 	(mince = "000") then vyst <= "00";
+				elsif (mince = "100") then vyst <= "00";
+				elsif (mince = "010") then vyst <= "10";
+				elsif (mince = "001") then vyst <= "10";
+				else vyst <= "00";
+				end if; 
+			when s4 => 
+				if 	(mince = "000") then vyst <= "00";
+				elsif (mince = "100") then vyst <= "10";
+				elsif (mince = "010") then vyst <= "11";
+				elsif (mince = "001") then vyst <= "10";
+				else vyst <= "00";
+				end if;	
+				
+			when others => NULL;
+		end case;
+
+		end process OUTPUT_DECODE;
+
+
+  		NEXT_STATE_DECODE: process (state, mince)
+		begin
+    
+		case (state) is
+		when s0 =>
+				if (mince = "000") then next_state <= s0; stavy <="000";
+				elsif (mince = "100") then next_state <= s1; stavy <="001";
+				elsif (mince = "010") then next_state <= s2; stavy <="010";
+				elsif (mince = "001") then next_state <= s0; stavy <="000";
+							else next_state <= s0;  
+							end if;
+				  
+		when s1 =>
+				if (mince = "000") then next_state <= s1; stavy <="001";
+				elsif (mince = "100") then next_state <= s2; stavy <="010";
+				elsif (mince = "010") then next_state <= s3; stavy <="011";
+				elsif (mince = "001") then next_state <= s0; stavy <="000";
+							else next_state <= s1;  
+							end if;
+					
+		when s2 =>
+				if (mince = "000") then next_state <= s2; stavy <="010";
+				elsif (mince = "100") then next_state <= s3; stavy <="011";
+				elsif (mince = "010") then next_state <= s4; stavy <="100";
+				elsif (mince = "001") then next_state <= s0; stavy <="000";
+							else next_state <= s2;  
+							end if;
+					
+		when s3 =>
+				if (mince = "000") then next_state <= s3; stavy <="011";
+				elsif (mince = "100") then next_state <= s4; stavy <="100";
+				elsif (mince = "010") then next_state <= s0; stavy <="000";
+				elsif (mince = "001") then next_state <= s0; stavy <="000";
+							else next_state <= s3;  
+							end if;
+
+		when s4 =>
+				if (mince = "000") then next_state <= s4; stavy <="100";
+				elsif (mince = "100") then next_state <= s0; stavy <="000";
+				elsif (mince = "010") then next_state <= s0; stavy <="000";
+				elsif (mince = "001") then next_state <= s0; stavy <="000";
+							else next_state <= s4;  
+							end if;
+
+when others => NULL;
+end case;
+stavy <= state;
+
+	end process NEXT_STATE_DECODE;
+
+
+	
+ end Behavioral;
+

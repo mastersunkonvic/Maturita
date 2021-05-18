@@ -1,0 +1,26 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+
+entity dekoder is
+    Port ( HEX : in  STD_LOGIC_VECTOR (2 downto 0);
+           LED : out  STD_LOGIC_VECTOR (6 downto 0)
+			  );
+end dekoder;
+
+
+architecture Behavioral of dekoder is
+
+begin
+
+   
+    with HEX SELect
+   LED<= "1111001" when "001",   --1
+         "0100100" when "010",   --2
+         "0110000" when "011",   --3
+         "0011001" when "100",   --4
+	 "0010010" when "101",   --5
+	 "1000000" when others;   --0
+       
+end Behavioral;

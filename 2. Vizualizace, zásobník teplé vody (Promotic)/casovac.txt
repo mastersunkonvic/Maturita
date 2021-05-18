@@ -1,0 +1,52 @@
+Dim mbat, modt, mstu, mtep, mzas, tbat, ttep, tstu, tzas
+
+Set mbat=pMe.Pm("../mbat")' množství v baterii
+Set modt=pMe.Pm("../modt")' množství otok 
+Set mstu=pMe.Pm("../mstu")' množství studené vody
+Set mtep=pMe.Pm("../mtep")' množství teplé vody
+Set mzas=pMe.Pm("../mzas")' množství zasobníku
+Set tbat=pMe.Pm("../tbat")' teplota baterie
+Set ttep=pMe.Pm("../ttep")' teplota teplé vody
+Set tstu=pMe.Pm("../tstu")' teplota studené vody
+Set tzas=pMe.Pm("../tzas")' teplota zásobníku 
+
+'simulace mnozstvi vody
+  mbat.value=mstu.value + mtep.value
+  mzas.value=mzas.value + mbat.value - modt.value
+'preteceni
+  If mzas >= 1000 Then
+  mzas.value = 1000
+  End If
+'vyprazdneni na realnou hodnotu
+  If mzas <= 0 Then
+  mzas.value = 0
+  End If
+ 
+'simulace teploty vody
+  tbat.value=((tstu.value * mstu.value)+(ttep.value * mtep.value))/(mstu.value+mtep.value)
+  tzas.value=((tbat.value * mbat.value)+(tzas.value * mzas.value))/(mbat.value+mzas.value)
+  If tzas >= 60 Then
+  tzas.value = 60
+  End If
+  If tzas <= 14 Then
+  tzas.value = 14
+  End If
+
+'automatické mísení
+  If mzas <= 100 Then
+  modt.value = 0
+  End If
+  
+  If mzas >= 900 Then
+  modt.value = 150
+  End If
+  
+  If tzas <= 36 Then
+  mstu.value = 20
+  mtep.value = 80
+  End If
+  
+  If tzas => 45 Then
+  mstu.value = 80
+  mtep.value = 20
+  End If

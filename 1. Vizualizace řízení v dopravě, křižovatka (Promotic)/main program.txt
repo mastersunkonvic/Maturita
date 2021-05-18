@@ -1,0 +1,23 @@
+Dim oCitac, oRadic
+Set oCitac=pMe.Pm("../hod_cit")
+Set oRadic=pMe.Pm("../radic")
+
+If oRadic = 1 Then
+  If oCitac =>28 Then
+  oCitac.value=1
+  Else
+  oCitac.value=oCitac.value+1
+  End If
+End If
+
+If oRadic = 0 Then
+  If oCitac => 30 Then
+  oCitac.value=29
+  Else   
+  oCitac.value=oCitac.value+1
+  End If
+End If
+
+If oRadic = 2  Then
+oCitac.value = 29
+End If

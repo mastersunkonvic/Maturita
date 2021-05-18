@@ -1,0 +1,114 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+entity garaz_main is
+    Port ( p : in  STD_LOGIC;
+           o : in  STD_LOGIC;
+           reset : in  STD_LOGIC;
+           clk : in  STD_LOGIC;
+           stav : inout  STD_LOGIC_VECTOR (2 downto 0);
+           semafor : out  STD_LOGIC);
+end garaz_main;
+
+architecture Behavioral of garaz_main is
+
+	signal state, next_state : std_logic_vector (2 downto 0);
+
+	constant S0 : std_logic_vector (2 downto 0) := "000";
+	constant S1 : std_logic_vector (2 downto 0) := "001";
+	constant S2 : std_logic_vector (2 downto 0) := "010";
+	constant S3 : std_logic_vector (2 downto 0) := "011";
+	constant S4 : std_logic_vector (2 downto 0) := "100";
+	constant S5 : std_logic_vector (2 downto 0) := "101";
+
+
+begin
+
+SYNCH_PROCES: process (clk, reset)
+begin
+	if (reset = '1') then
+	  state <= S0;
+	elsif rising_edge (clk) then
+	  state <= next_state;
+	end if;
+    
+ end process SYNCH_PROCES;
+ 
+ ZAKODOVANI_VYSTUPU: process (state)
+begin
+   case (state) is
+      when S5 =>
+	 semafor <= '1';
+
+      when others =>
+	 semafor <= '0';
+   end case;
+end process ZAKODOVANI_VYSTUPU;
+
+ZAKODOVANI_STAVU: process (p, o, state)
+begin 
+     case(state) is
+	when S0 =>
+	 if (p = '1' AND o = '0') then
+	   next_state <= S1;
+	 else
+	   next_state <= S0;
+	 end if; 
+
+	
+when S1 =>
+	 if (p = '1' AND o = '0') then
+	   next_state <= S2;
+	 elsif (p = '0' AND o = '1') then
+	   next_state <= S0;
+	 else
+	   next_state <= S1;
+	 end if;
+
+	
+when S2 =>
+	 if (p = '1' AND o = '0') then
+	   next_state <= S3;
+	 elsif (p = '0' AND o = '1') then
+	   next_state <= S1;
+	 else
+	   next_state <= S2;
+	 end if;
+
+	
+when S3 =>
+	 if (p = '1' AND o = '0') then
+	   next_state <= S4;
+	 elsif (p = '0' AND o = '1') then
+	   next_state <= S2;
+	 else
+	   next_state <= S3;
+	 end if;
+
+	
+when S4 =>
+	 if (p = '1' AND o = '0') then
+	   next_state <= S5;
+	 elsif (p = '0' AND o = '1') then
+	   next_state <= S3;
+	 else
+	   next_state <= S4;
+	 end if;
+	
+	
+when S5 => 
+	 if (p = '0' AND o = '1') then
+	   next_state <= S4;
+	 else
+	   next_state <= S5;
+	 end if;
+
+	when others => NULL;
+     end case;
+	
+	stav <= state;
+   end process ZAKODOVANI_STAVU;
+
+end Behavioral;
+
