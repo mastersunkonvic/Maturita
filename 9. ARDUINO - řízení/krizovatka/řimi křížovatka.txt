@@ -1,0 +1,156 @@
+//KONSTANTY
+int HAC = 13; // hlavní cesta auta červená
+int HAO = 12;  // hlavní cesta auta oranžová
+int HAZ = 11; // hlavní cesta auta zelená
+int HCHC = 10;  // hlavní cesta chodci červená
+int HCHZ = 9;  // hlavní cesta chodci zelená  
+int VAC = 8;  // vedlejší cesta auta auta červená
+int VAO = 7;  // vedlejší cesta auta oranžová
+int VAZ = 6;  // vedlejší cesta auta zelená
+int VCHC = 5;  // vedlejší cesta chodci červená
+int VCHZ = 4;  // vedlejší cesta chodci zelená  
+int TLpin3 = 3;  // InterruptPIN
+int TLpin2 = 2;  // InterruptPIN
+
+//PROMĚNNÉ
+int x = 1;   // pomocná proměnná
+int tlacitko = 0; //proměnná pro přepínání mezi režimy
+int automobil = 0; //pomocná proměnná o počtu projetých aut za noc
+
+void setup()
+{
+  Serial.begin(9600);
+  
+  pinMode(HAC, OUTPUT); // HC A Č
+  pinMode(HAO, OUTPUT); // HC A O
+  pinMode(HAZ, OUTPUT); // HC A Z
+  pinMode(HCHC, OUTPUT); // HC CH Č
+  pinMode(HCHZ, OUTPUT); // HC CH Z
+  pinMode(VAC, OUTPUT); // VC A Č
+  pinMode(VAO, OUTPUT); // VC A O
+  pinMode(VAZ, OUTPUT); // VC A Z
+  pinMode(VCHC, OUTPUT); // CV CH Č
+  pinMode(VCHZ, OUTPUT); // CV CH Z
+  pinMode(TLpin3, INPUT);  // InterruptPIN
+  pinMode(TLpin2, INPUT);  // InterruptPIN
+  
+  //přerušení programu fcí. attachInterrupt spuštěné 1. tlačítkem
+  attachInterrupt(digitalPinToInterrupt (TLpin3), rezim_volby , RISING);
+  //přerušení programu fcí. attachInterrupt spuštěné 2. tlačítkem
+  attachInterrupt(digitalPinToInterrupt (TLpin2), pocet_aut , RISING);
+
+}
+
+
+void loop()
+{     
+  if (x==0 && tlacitko==1) 
+    {// nastavení pro rozjezd z nočního režimu
+    x=1;       
+      digitalWrite(HAC, HIGH);
+      digitalWrite(VAC, HIGH);    
+      delay(2000); // čekat 2s
+    } 
+    
+    if(x==1 && tlacitko==0)
+    {
+      x=0;
+      automobil=0; //nastavení udaje před započetím nočního režimu
+    }
+    // výběr režimu podle přepínače  
+    switch (tlacitko)
+    {
+      case 1:
+          den();
+      break;
+      
+      default:
+          noc();
+      break;
+    }
+}
+
+void rezim_volby() //VOLANÁ FCE. PŘI PŘERUŠENÍ
+{
+    if(tlacitko==0)
+      {tlacitko=1;} 
+    else
+      {tlacitko=0;}     
+}
+
+void pocet_aut() //VOLANÁ FCE. PŘI PŘERUŠENÍ
+{   
+   if(automobil < 4)
+      {
+        automobil++;
+        Serial.println(automobil);      
+      }
+    else
+      {
+        tlacitko=1;
+        automobil=0;
+      } 
+}
+
+void den()
+{  //denní režim
+    digitalWrite(HCHC, HIGH);
+    digitalWrite(VCHZ, HIGH);
+    digitalWrite(HAO, HIGH); 
+    digitalWrite(VAC, HIGH);
+    digitalWrite(HCHZ, LOW);
+    digitalWrite(VCHC, LOW);
+    digitalWrite(VAO, LOW);
+    digitalWrite(VAZ, LOW);
+    delay(500);  //čekat 0.5s
+  
+    digitalWrite(HAC, LOW); 
+    digitalWrite(HAO, LOW);  
+    digitalWrite(HAZ, HIGH);   
+    digitalWrite(HCHZ, LOW); 
+    digitalWrite(HCHC, HIGH);
+    delay(1000); //čekat 1s
+  
+    digitalWrite(HAZ, LOW);  
+    digitalWrite(HAO, HIGH);  
+    delay(500);  //čekat 0.5s
+  
+    digitalWrite(HCHC, LOW); 
+    digitalWrite(HCHZ, HIGH);
+    digitalWrite(HAC, HIGH);  
+    digitalWrite(HAO, LOW); 
+    digitalWrite(VAO, HIGH); 
+    digitalWrite(VCHC, HIGH);
+    digitalWrite(VCHZ, LOW); 
+    delay(500);  //čekat 0.5s
+    
+    digitalWrite(VAZ, HIGH); 
+    digitalWrite(VAO, LOW);
+    digitalWrite(VAC, LOW);
+    delay(1000);  //čekat 1s
+    
+    digitalWrite(VAZ, LOW); 
+    digitalWrite(VAO, HIGH);
+    digitalWrite(VAC, LOW);
+    delay(500);  //čekat 0.5s
+  
+  
+}
+
+void noc()
+{     // noční režim 
+    digitalWrite(HCHC, LOW); 
+    digitalWrite(VCHC, LOW);
+    digitalWrite(HCHZ, LOW); 
+    digitalWrite(VCHZ, LOW);
+    digitalWrite(HAC, LOW);
+    digitalWrite(VAC, LOW);
+    digitalWrite(HAZ, LOW);
+    digitalWrite(VAZ, LOW);  
+    digitalWrite(HAO, HIGH);
+    digitalWrite(VAO, HIGH);  
+    delay(500); //čekat 0.5s
+    digitalWrite(HAO, LOW);
+    digitalWrite(VAO, LOW);
+    delay(500); //čekat 0.5s
+}

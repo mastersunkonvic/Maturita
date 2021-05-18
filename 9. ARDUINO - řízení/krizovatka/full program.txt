@@ -1,0 +1,204 @@
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27,16,2);  
+
+int cervenaH = 13;  //pin 2 je červená pro hlavní semafor
+int zlutaH = 3;  //pin 3 je žlutá pro hlavní semafor
+int zelenaH = 4;  //pin 4 je zelená pro hlavní semafor
+int zelenaV = 8;  //pin 8 je zelená pro vedlejší semafor
+int zlutaV = 7;  //pin 7 je žlutá pro vedlejší semafor
+int cervenaV = 6;   //pin 6 je červená vedlejší semafor
+int tlacitko = 5; //pin 5 je tlacitko pro měnění režimů
+int tlacitko2 = 2; //pin 2 je tlačítko pro zpoždění
+int cervenaHCH = 12; //ping 12 je červená pro hlavní semafor pro chodce
+int zelenaHCH = 11; //ping 11 je zelená pro hlavní semafor pro chodce
+int cervenaVCH = 10; //ping 10 je červená pro vedlejší semafor pro chodce
+int zelenaVCH = 9; //ping 9 je zelená pro vedlejší semafor pro chodce
+int x = 1; //přednastavená hodnota pro noční režim
+int d = 1000; //nastavení počátečního zpoždění na 1 sekundu
+int z = 0; //pomocná proměnná pro výběr zpoždění 
+int y = 0; //pomocná proměnná pro zapnutí zpoždění 
+int a = 0; //pomocná proměnná pro auta
+
+
+
+void setup() {
+  Serial.begin(9600);
+  lcd.init();
+  lcd.backlight();
+  attachInterrupt(0,zpozdeni,RISING);
+  pinMode(2, INPUT_PULLUP);
+  pinMode(cervenaH, OUTPUT);  //červená pro hlavní semafor je výstup
+  pinMode(zlutaH, OUTPUT);  //žlutá pro hlavní semafor je výstup
+  pinMode(zelenaH, OUTPUT);  //zelená pro hlavní semafor je výstup
+  pinMode(zelenaV, OUTPUT);  //zelená pro vedlejší semafor je výstup
+  pinMode(zlutaV, OUTPUT); //žlutá pro vedlejší semafor je výstup
+  pinMode(cervenaV, OUTPUT);  //červená pro vedlejší semafor je výstup
+  pinMode(cervenaHCH, OUTPUT); //červená pro hlavní semafor pro chodce je výstup
+  pinMode(cervenaVCH, OUTPUT); //červená pro vedlejší semafor pro chodce je výstup
+  pinMode(zelenaHCH, OUTPUT); //zelená pro hlavní semafor pro chodce je výstup
+  pinMode(zelenaVCH, OUTPUT); //zelená pro vedlejší semafor pro chodce je výstup
+  pinMode(tlacitko, INPUT); //switchbutton
+  
+}
+
+void loop() {
+    
+    if (digitalRead(tlacitko) == HIGH) //denní režim
+    {
+    if (x == 1)
+    {
+      denstart();
+      x=0;
+    }
+      den();
+    }
+    
+    else
+    {
+      x=1;
+      if (a == 5)
+      {
+        a=0;
+        denstart();
+        den();
+      }
+      noc();
+      Serial.print("Pocet projetych aut: \t");
+      Serial.println(a);
+    }
+      
+      
+
+}
+
+void auta()
+{
+  a++;  
+}
+void zpozdeni()
+{
+  y=1;
+}
+
+void den()
+{
+  //funkce pro den
+      if (y == 1)
+    {
+      {
+        y=0;
+        z=z+1;
+      }
+      
+      if (z == 0)
+      {
+        d=1000;
+      }
+
+      if (z == 1)
+      {
+        d=500;
+      }
+
+      if (z == 2)
+      {
+        d=250;
+      }
+
+      if (z == 3)
+      {
+        d=1000;
+        z=0;
+      }
+    }
+    Serial.print("Aktualni delay: \t");
+    Serial.println(d);  
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Aktualni rezim:");
+    lcd.setCursor(0,1);
+    lcd.print("Denni rezim");    
+    //2
+    digitalWrite(zlutaH, HIGH);
+    digitalWrite(zelenaVCH, HIGH);
+    digitalWrite(cervenaVCH, LOW);
+    delay(d);  //počkat 0.5 sekund
+    //3
+    digitalWrite(zelenaH, HIGH); 
+    digitalWrite(cervenaV, HIGH);
+    digitalWrite(cervenaH, LOW);
+    digitalWrite(zlutaH, LOW);    
+    delay(1000);  //počkat 1 sekundu
+    //4
+    digitalWrite(zelenaH, LOW);  //vypnout zelenou
+    digitalWrite(zlutaH, HIGH);  
+    delay(d);  //počkat 0.5 sekund
+    //5
+    digitalWrite(cervenaH, HIGH);  
+    digitalWrite(zlutaH, LOW); 
+    digitalWrite(cervenaVCH, HIGH);
+    digitalWrite(zelenaVCH, LOW); 
+    delay(d);  //počkat 0.5 sekund
+    //6
+    digitalWrite(zlutaV, HIGH); 
+    digitalWrite(zelenaHCH, HIGH);
+    digitalWrite(cervenaHCH, LOW);   
+    delay(d);  //počkat 0.5 sekund
+    //7
+    digitalWrite(cervenaV, LOW); 
+    digitalWrite(zlutaV, LOW);
+    digitalWrite(zelenaV, HIGH);
+    delay(d);  //počkat 0.5 sekund
+    //8 
+    digitalWrite(zlutaV, HIGH);
+    digitalWrite(zelenaV, LOW);
+    delay(d);  //počkat 0.5 sekund
+    //9
+    digitalWrite(zlutaV, LOW);
+    digitalWrite(zelenaHCH, LOW);
+    digitalWrite(cervenaV, HIGH);
+    digitalWrite(cervenaHCH, HIGH);
+    delay(d);
+}
+
+void noc()
+{
+  //funkce pro noc
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Aktualni rezim:");
+  lcd.setCursor(0,1);
+  lcd.print("Nocni rezim");
+  digitalWrite(zlutaH, HIGH);
+  digitalWrite(zlutaV, HIGH);  
+  digitalWrite(cervenaH, LOW);
+  digitalWrite(cervenaV, LOW);
+  digitalWrite(zelenaH, LOW);
+  digitalWrite(zelenaV, LOW);
+  digitalWrite(cervenaHCH, LOW);
+  digitalWrite(cervenaVCH, LOW);
+  digitalWrite(zelenaHCH, LOW);
+  digitalWrite(zelenaVCH, LOW);
+  delay(500);
+  digitalWrite(zlutaH, LOW);
+  digitalWrite(zlutaV, LOW);
+  delay(500);
+}  
+
+void denstart()
+{
+      //1
+      digitalWrite(cervenaH, HIGH);
+      digitalWrite(cervenaV, HIGH);
+      digitalWrite(cervenaHCH, HIGH);
+      digitalWrite(cervenaVCH, HIGH);
+      digitalWrite(zelenaHCH, LOW);
+      digitalWrite(zelenaVCH, LOW);      
+      digitalWrite(zlutaH, LOW);
+      digitalWrite(zlutaV, LOW);
+      digitalWrite(zelenaH, LOW);
+      digitalWrite(zelenaV, LOW);
+      delay(2000);
+}
+ 

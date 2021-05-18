@@ -1,0 +1,32 @@
+Teplomer:
+
+Obecne info:
+ - teplotni cidlo DS18B20
+
+1) Test cidla
+     - obsah registru LSB zobrazit na LEDkach
+
+2) Test LCD
+     -vypis textu na 2 radky
+
+3) Zobrazit aktualni teplotu na LCD
+     - 4 desetinne mista
+
+4) Zapamatovat si min. a max. teplotu 
+     - zobrazovat prubezne na seriovem monitoru
+
+5) Hlavni program:
+     - pri poklesu pod 26,5°C zapnout topeni
+     - pri prekroceni 28,5°C zapnout klimatizaci
+     - vzdy vypsat prislusny text na LCD
+     - pri prekroceni nebo poklesu rozsvitit
+        prislusnou barvu na RGB (klid = zelena,
+        topeni = cervena, klimatizace = modra)
+
+---
+Rozsireni:
+  - pomoci tlacitka prepinat na LCD mezi aktualni
+     telotou, minimalni a maximalni
+  - pomoci druheho tlacitka moznost smazani pameti
+     o min a max hodnotach
+

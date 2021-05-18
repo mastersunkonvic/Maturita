@@ -1,0 +1,45 @@
+Krizovatka:
+
+Obecne info:
+ - rozdelit do funkci
+ - dva rezimy -> den a noc (nocni rezim je vychozi)
+ - krok vzdy 0,5s (pokud nebude zadano jinak)
+ - po resetu/pri spusteni zacina vzdy nocni rezim
+ - dva semafory -> hl. a ved.
+
+1) Rozblikat LED -> priprava pro nocni rezim
+
+2) Rozblikat denni rezim (č-> č+o-> z-> o-> č)
+    - vyvarovat se situaci dvou oranzovych
+
+3) Zmena rychlosti blikani pomoci tlacitka
+    Vychozi krok blikani: 1s
+    Pri stisku zmenit na polovinu 
+    (1s -> 0,5s; 0,5s -> 0,25; 0,25 -> 1s)
+
+4) Hlavni program:
+    - noc:
+       - blikaji pouze oranzove
+    - den:
+       - pri prechodu z noci sviti na obou semaforech cervena po
+          dobu 2s, pote se spusti hl. semafor
+       - zelena na hl. sem. bude svitit dele nez na ved. sem.
+         (napr. 1s)
+       - vyvarovat se situaci dvou oranzovych
+    - prechod mezi rezimy pomoci tlacitka
+       (vyuzit prerusovaci system)
+
+---
+Rozsireni:
+ - pomoci tlacitka simulovat prujezd aut v nocnim rezimu
+    po 5ti autech za sebou automaticky prepnout z noci na den
+    (vyuzit druhe preruseni)
+ - na LCD vypisovat nazev rezimu
+ - k vypisu pridat datum a cas
+ - chodci pro oba smery
+ - pocitani aut v nocnim rezimu omezit casove -> pokud do 5s
+    projede 5 aut (prijezd je simulovan prerusenim), prepnout
+    na denni rezim; pokud neprojede 5 aut do 5s vynulovat
+    pocitadlo
+
+
